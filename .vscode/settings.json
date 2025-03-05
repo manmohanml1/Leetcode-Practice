@@ -1,0 +1,5 @@
+{
+  "python.analysis.extraPaths": ["./python/src"],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.project.sourcePaths": ["src/main/java", "src/test/java"]
+}
