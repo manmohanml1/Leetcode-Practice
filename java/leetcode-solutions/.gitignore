@@ -1,0 +1,44 @@
+# Maven target directory (compiled code & artifacts)
+target/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+
+# Eclipse IDE project files
+.classpath
+.project
+.settings/
+
+# VS Code settings
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+hs_err_pid*
+
+# Compiled Java class files
+*.class
+
+# JAR/WAR/EAR files
+*.jar
+*.war
+*.ear
+
+# Maven Wrapper files (if using Maven Wrapper)
+.mvn/
+!**/mvnw
+!**/mvnw.cmd
+
+# Coverage & test reports
+coverage/
+jacoco.exec
+surefire-reports/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db

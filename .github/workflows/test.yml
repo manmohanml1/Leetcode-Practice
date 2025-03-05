@@ -3,12 +3,41 @@ name: Run Tests
 on: [push, pull_request]
 
 jobs:
-  test:
+  test_typescript:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install
-      - run: npm test
+          cache: "npm"
+          cache-dependency-path: typescript/package-lock.json
+
+      - run: cd typescript && npm install
+      - run: cd typescript && npm test
+  test_java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: "temurin" # Using OpenJDK (Temurin)
+          java-version: "17"
+          cache: "maven"
+
+      - run: cd java && mvn test
+  test_python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "pip"
+          cache-dependency-path: python/requirements.txt
+
+      - run: cd python && pip install -r requirements.txt
+      - run: cd python && pytest tests

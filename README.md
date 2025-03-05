@@ -1,2 +1,3 @@
 # Leetcode-Practice
-Practice Leetcode using Typescript
+
+Practice Leetcode using Typescript,Java,Python
