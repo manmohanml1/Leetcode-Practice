@@ -7,7 +7,7 @@ function containsDuplicate1(nums: number[]): boolean {
   }
   return false;
 }
-//More optimized - sorting: TC: O(nlogn), SC : O(nlogn)
+//More optimized - sorting: TC: O(nlogn), SC : O(n)
 function containsDuplicate2(nums: number[]): boolean {
   nums.sort((a, b) => a - b);
   for (let i = 0; i < nums.length; i++) {
