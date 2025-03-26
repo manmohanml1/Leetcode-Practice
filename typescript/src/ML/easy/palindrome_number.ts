@@ -1,4 +1,4 @@
-function isPalindrome1(x: number): boolean {
+function isPalindromeNumber1(x: number): boolean {
   const stringNumber = String(x);
   let reverseString: String = "";
   for (let i = stringNumber.length; i > 0; i--) {
@@ -7,7 +7,7 @@ function isPalindrome1(x: number): boolean {
   return stringNumber === reverseString;
 }
 
-export function isPalindrome2(x: number): boolean {
+export function isPalindromeNumber2(x: number): boolean {
   const stringNumber = x.toString();
   for (let i = 0; i < stringNumber.length; i++) {
     if (stringNumber[i] != stringNumber[stringNumber.length - i - 1])
