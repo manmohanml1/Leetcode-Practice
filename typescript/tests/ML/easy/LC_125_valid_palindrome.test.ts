@@ -1,4 +1,4 @@
-import { isPalindrome2 } from "../../../src/ML/easy/valid_palindrome";
+import { isPalindrome2 } from "../../../src/ML/easy/LC_125_valid_palindrome";
 
 test("isPalindrome example test1", () => {
   expect(isPalindrome2("A man, a plan, a canal: Panama")).toEqual(true);

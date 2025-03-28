@@ -1,4 +1,4 @@
-import { distinctAverages } from "../../../src/ML/easy/distinct_averages";
+import { distinctAverages } from "../../../src/ML/easy/LC_2465_distinct_averages";
 
 test("isPalindrome example test1", () => {
   expect(distinctAverages([4, 1, 4, 0, 3, 5])).toEqual(2);

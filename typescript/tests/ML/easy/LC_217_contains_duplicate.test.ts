@@ -1,4 +1,4 @@
-import { containsDuplicate3 } from "../../../src/ML/easy/contains_duplicate";
+import { containsDuplicate3 } from "../../../src/ML/easy/LC_217_contains_duplicate";
 
 test("containsDuplicate example test1", () => {
   expect(containsDuplicate3([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])).toEqual(true);
