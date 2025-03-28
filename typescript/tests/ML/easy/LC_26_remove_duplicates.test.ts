@@ -1,4 +1,4 @@
-import { removeDuplicates } from "../../../src/ML/easy/remove_duplicates";
+import { removeDuplicates } from "../../../src/ML/easy/LC_26_remove_duplicates";
 
 test("removeDuplicates example test1", () => {
   expect(removeDuplicates([1, 1, 2])).toEqual(2);

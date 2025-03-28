@@ -1,5 +1,5 @@
 import unittest
-from src.ML.easy.valid_anagram import Solution
+from src.ML.easy.LC_242_valid_anagram import Solution
 class TestContainsDuplicate(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()

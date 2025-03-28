@@ -1,4 +1,4 @@
-import { isAnagram } from "../../../src/ML/easy/valid_anagram";
+import { isAnagram } from "../../../src/ML/easy/LC_242_valid_anagram";
 
 test("containsDuplicate example test1", () => {
   expect(isAnagram("anagram", "nagaram")).toEqual(true);

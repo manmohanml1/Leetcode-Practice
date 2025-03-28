@@ -1,4 +1,4 @@
-import twoSum from "../../../src/ML/easy/two-sum";
+import twoSum from "../../../src/ML/easy/LC_1_two-sum";
 
 test("twoSum example test1", () => {
   expect(twoSum([2, 7, 11, 15], 9)).toEqual([0, 1]);

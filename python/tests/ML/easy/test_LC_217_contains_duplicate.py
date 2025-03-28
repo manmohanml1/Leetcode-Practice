@@ -1,5 +1,5 @@
 import unittest
-from src.ML.easy.contains_duplicate import contains_duplicate2
+from src.ML.easy.LC_217_contains_duplicate import contains_duplicate2
 class TestContainsDuplicate(unittest.TestCase):
         
     def test_contains_duplicate(self):

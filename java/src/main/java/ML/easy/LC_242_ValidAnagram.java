@@ -1,6 +1,6 @@
 package ML.easy;
 
-public class ValidAnagram {
+public class LC_242_ValidAnagram {
     //Brute force iterate each s and iterate each t and eliminate until nothing matches to return true
     //Optimized solution is the one with frequency count and array/hashset methods available
     //TC:O(n^2)-> Brute Force, O(n)-> Optimized 

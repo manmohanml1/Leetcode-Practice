@@ -1,4 +1,4 @@
-import { isPalindromeNumber2 } from "../../../src/ML/easy/palindrome_number";
+import { isPalindromeNumber2 } from "../../../src/ML/easy/LC_9_palindrome_number";
 
 test("isPalindrome example test1", () => {
   expect(isPalindromeNumber2(121)).toEqual(true);
