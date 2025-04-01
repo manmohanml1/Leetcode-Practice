@@ -1,34 +1,131 @@
 @echo off
-setlocal
+setlocal EnableDelayedExpansion
 
+:: ============================================
+:: Multi-Language Test Runner (Batch Script)
+:: ============================================
+:: This script allows developers to:
+:: - Run tests for TypeScript, Java, and Python
+:: - Use argument-based control (ts/java/py/all/smart)
+:: - Choose via an interactive menu if no args are passed
+:: - Execute "smart tests" based on Git diff
+:: - Display timing info for each test run
+::
+:: Commands used:
+:: - `pushd`/`popd` to switch directories safely
+:: - `call` to execute commands without exiting the script
+:: - `git diff` to detect file changes for smart testing
+:: ============================================
+
+:: Store script start time
+set startTime=%time%
+
+:: 1️⃣ Smart test mode: run only what has changed
+if "%1"=="smart" (
+    echo Running smart test mode based on Git diff...
+    git diff --name-only > changed_files.txt
+    findstr /i "typescript" changed_files.txt >nul && call :typescript
+    findstr /i "java" changed_files.txt >nul && call :java
+    findstr /i "python" changed_files.txt >nul && call :python
+    del changed_files.txt
+    goto summary
+)
+
+:: 2️⃣ Argument-based testing
+if "%1"=="ts" call :typescript
+if "%1"=="java" call :java
+if "%1"=="py" call :python
+if "%1"=="all" (
+    call :typescript
+    call :java
+    call :python
+    goto summary
+)
+
+:: 3️⃣ No argument? Show interactive menu
+if "%1"=="" goto menu
+
+:: If unknown input, skip to summary
+goto summary
+
+:: ==========================
+:: Interactive Menu Function
+:: ==========================
+:menu
+cls
+echo =====================================
+echo         Select Language to Test
+echo =====================================
+echo 1. TypeScript
+echo 2. Java
+echo 3. Python
+echo 4. All
+echo 5. Smart (based on Git diff)
+echo 6. Exit
+echo =====================================
+set /p choice="Enter your choice (1-6): "
+
+if "%choice%"=="1" call :typescript
+if "%choice%"=="2" call :java
+if "%choice%"=="3" call :python
+if "%choice%"=="4" (
+    call :typescript
+    call :java
+    call :python
+)
+if "%choice%"=="5" (
+    git diff --name-only > changed_files.txt
+    findstr /i "typescript" changed_files.txt >nul && call :typescript
+    findstr /i "java" changed_files.txt >nul && call :java
+    findstr /i "python" changed_files.txt >nul && call :python
+    del changed_files.txt
+)
+if "%choice%"=="6" exit
+goto summary
+
+:: ==========================
+:: TypeScript Test Function
+:: ==========================
+:typescript
 echo Running TypeScript Tests...
-pushd typescript
+pushd typescript >nul
 call npm test
-popd
+popd >nul
+set tsTime=%time%
+goto :eof
 
+:: ==========================
+:: Java Test Function
+:: ==========================
+:java
 echo Running Java Tests...
-pushd java
+pushd java >nul
 call mvn test
-popd
+popd >nul
+set javaTime=%time%
+goto :eof
 
+:: ==========================
+:: Python Test Function
+:: ==========================
+:python
 echo Running Python Tests...
-pushd python
+pushd python >nul
 call pytest
-popd
+popd >nul
+set pyTime=%time%
+goto :eof
 
-echo All tests executed successfully!
-
-:: Explanation:
-:: This batch script automates the execution of test cases for multiple programming languages (TypeScript, Java, and Python)
-:: in a structured repository. The `@echo off` command ensures that only the output of commands is displayed, keeping 
-:: the script clean. The `setlocal` command prevents variable changes from affecting other scripts or the system.
-::
-:: Each language's tests are executed sequentially:
-:: 1. `pushd` moves into the respective language's directory.
-:: 2. `call` is used before `npm test`, `mvn test`, and `pytest` to ensure execution returns to the main script after 
-::    running the command. Without `call`, the batch script would terminate after executing the first test.
-:: 3. `popd` moves back to the original directory after running each set of tests, ensuring the script can continue.
-::
-:: If all tests pass, "All tests executed successfully!" is displayed. If any test fails, the error message from the 
-:: respective test framework will be shown. This script allows developers to run tests for all three languages 
-:: from the root directory without needing to navigate into each folder manually.
+:: ==========================
+:: Final Summary Output
+:: ==========================
+:summary
+echo.
+echo ========== Test Summary ==========
+echo Start Time:     %startTime%
+if defined tsTime echo TypeScript End:  %tsTime%
+if defined javaTime echo Java End:        %javaTime%
+if defined pyTime echo Python End:      %pyTime%
+echo End Time:       %time%
+echo ================================
+pause
