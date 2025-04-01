@@ -32,7 +32,7 @@ leetcode-practice/
 ├── .github/
 │   ├── workflows/test.yml  # GitHub Actions CI
 │
-├── run_tests.bat           # One-click test runner for all languages (Windows)
+├── run_tests.bat           # Interactive and smart test runner for all languages (Windows)
 └── README.md
 ```
 
@@ -47,7 +47,11 @@ leetcode-practice/
   - TypeScript: Jest
   - Java: JUnit 5 + Maven
   - Python: Pytest
-- 🛠️ Built-in `run_tests.bat` to run all tests from the root folder (Windows)
+- 🛠️ Built-in `run_tests.bat` to:
+  - Run all tests from the root folder
+  - Accept arguments to test specific languages (`ts`, `java`, `py`, `all`, `smart`)
+  - Show an interactive menu when no arguments are passed
+  - Run "smart tests" based on changed files using `git diff`
 
 ---
 
@@ -84,10 +88,15 @@ LC_<number>_<problem-name>.<ext>
 
 ### 🧪 How to Run Tests
 
-#### 🖥️ Run All Tests (Windows)
+#### 🖥️ Run Tests Using `run_tests.bat` (Windows)
 
 ```sh
-run_tests.bat
+run_tests.bat           # Shows menu to select language or run all
+run_tests.bat ts        # Only run TypeScript tests
+run_tests.bat java      # Only run Java tests
+run_tests.bat py        # Only run Python tests
+run_tests.bat all       # Run all language tests
+run_tests.bat smart     # Automatically test based on modified files (using git diff)
 ```
 
 #### 📦 TypeScript
@@ -133,6 +142,19 @@ This repository uses **GitHub Actions** to:
 - Run tests for all 3 languages
 - Use **dependency caching** to speed up builds
 - Prevent merging unless all tests pass
+
+---
+
+### 💡 Testing Shortcuts (Windows)
+
+- `run_tests.bat` — Opens interactive menu
+- `run_tests.bat smart` — Detects changed files and runs only those tests
+- `run_tests.bat ts` — Runs TypeScript only
+- `run_tests.bat java` — Runs Java only
+- `run_tests.bat py` — Runs Python only
+- `run_tests.bat all` — Runs everything
+
+You can bind these to VS Code tasks or set keyboard shortcuts using `.vscode/tasks.json` (optional)
 
 ---
 
