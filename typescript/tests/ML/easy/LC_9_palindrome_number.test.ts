@@ -7,6 +7,7 @@ test("isPalindrome example test1", () => {
 test("isPalindrome example test2", () => {
   expect(isPalindromeNumber2(-121)).toEqual(false);
 });
+
 test("isPalindrome example test3", () => {
   expect(isPalindromeNumber2(10)).toEqual(false);
 });

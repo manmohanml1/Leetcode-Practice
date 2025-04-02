@@ -34,8 +34,9 @@ function maxProfit1(prices: number[]): number {
   return max_profit;
 }
 
+//Optimized/Two-pointer solution -> TC:O(n),SC:O(1)
 export function maxProfit2(prices: number[]): number {
-  if (prices.length === 1) return 0;
+  if (prices.length < 2 || !prices) return 0;
   let left = 0;
   let right = 1;
   let max_profit = 0;
@@ -51,15 +52,14 @@ export function maxProfit2(prices: number[]): number {
   return max_profit;
 }
 
-//Brute force -> TC:O(n^2),SC:O(n^2)
+//Brute force is also Dynamic Programming solution -> TC:O(n^2),SC:O(n^2)
 function maxProfit3(prices: number[]): number {
   let ans = 0;
-  for (let i = 0; i < prices.length; i++) {
-    let buy = prices[i];
-    for (let j = i + 1; j < prices.length; j++) {
-      let sell = prices[j];
-      ans = Math.max(ans, sell - buy);
-    }
+  let min = prices[0];
+  //Can be either 1 or 0, but 0 already assigned initially so we can start from 1
+  for (let i = 1; i < prices.length; i++) {
+    min = Math.min(min, prices[i]);
+    ans = Math.max(ans, prices[i] - min);
   }
   return ans;
 }
