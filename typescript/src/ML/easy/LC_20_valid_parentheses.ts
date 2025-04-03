@@ -34,3 +34,13 @@ export function isValid1(s: string): boolean {
   }
   return stack.length === 0;
 }
+
+//Brute force -> TC:O(n^2), SC:O(n)
+function isValid2(s: string): boolean {
+  while (s.includes("{}") || s.includes("()") || s.includes("[]")) {
+    s = s.replace("()", "");
+    s = s.replace("[]", "");
+    s = s.replace("{}", "");
+  }
+  return s === "";
+}
