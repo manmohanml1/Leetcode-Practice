@@ -9,7 +9,7 @@ test("original typed string I example test2", () => {
 });
 
 test("original typed string I example test3", () => {
-  expect(possibleStringCount2("aaaa")).toEqual(5);
+  expect(possibleStringCount2("aaaa")).toEqual(4);
 });
 
 test("original typed string I example test4", () => {

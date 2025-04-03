@@ -26,31 +26,35 @@ function listToArray(head: ListNode | null): number[] {
 
 describe("reverseList", () => {
   it("should reverse a list with multiple nodes", () => {
-    const head = arrayToList([1, 2, 3, 4, 5]);
-    const reversed = reverseList(head);
-    const reversed1 = reverseList1(head);
-    expect(listToArray(reversed)).toEqual([5, 4, 3, 2, 1]);
-    expect(listToArray(reversed1)).toEqual([5, 4, 3, 2, 1]);
+    const headIter = arrayToList([1, 2, 3, 4, 5]);
+    const headRecrsv = arrayToList([1, 2, 3, 4, 5]);
+    const reversedIter = reverseList(headIter);
+    const reversedRecrsv = reverseList1(headRecrsv);
+    expect(listToArray(reversedIter)).toEqual([5, 4, 3, 2, 1]);
+    expect(listToArray(reversedRecrsv)).toEqual([5, 4, 3, 2, 1]);
   });
   it("should handle a list with one node", () => {
-    const head = arrayToList([99]);
-    const reversed = reverseList(head);
-    const reversed1 = reverseList1(head);
-    expect(listToArray(reversed)).toEqual([99]);
-    expect(listToArray(reversed1)).toEqual([99]);
+    const headIter = arrayToList([99]);
+    const headRecrsv = arrayToList([99]);
+    const reversedIter = reverseList(headIter);
+    const reversedRecrsv = reverseList1(headRecrsv);
+    expect(listToArray(reversedIter)).toEqual([99]);
+    expect(listToArray(reversedRecrsv)).toEqual([99]);
   });
   it("should return null for an empty list", () => {
-    const head = arrayToList([]);
-    const reversed = reverseList(head);
-    const reversed1 = reverseList1(head);
-    expect(listToArray(reversed)).toEqual([]);
-    expect(listToArray(reversed1)).toEqual([]);
+    const headIter = arrayToList([]);
+    const headRecrsv = arrayToList([]);
+    const reversedIter = reverseList(headIter);
+    const reversedRecrsv = reverseList1(headRecrsv);
+    expect(listToArray(reversedIter)).toEqual([]);
+    expect(listToArray(reversedRecrsv)).toEqual([]);
   });
   it("should reverse a list with two nodes", () => {
-    const head = arrayToList([1, 2]);
-    const reversed = reverseList(head);
-    const reversed1 = reverseList1(head);
-    expect(listToArray(reversed)).toEqual([2, 1]);
-    expect(listToArray(reversed1)).toEqual([2, 1]);
+    const headIter = arrayToList([1, 2]);
+    const headRecrsv = arrayToList([1, 2]);
+    const reversedIter = reverseList(headIter);
+    const reversedRecrsv = reverseList1(headRecrsv);
+    expect(listToArray(reversedIter)).toEqual([2, 1]);
+    expect(listToArray(reversedRecrsv)).toEqual([2, 1]);
   });
 });
