@@ -1,28 +1,8 @@
 import {
-  ListNode,
   reverseList,
   reverseList1,
 } from "../../../src/ML/easy/LC_206_reversed_linked_list";
-
-function arrayToList(arr: number[]): ListNode | null {
-  if (arr.length === 0) return null;
-  let head = new ListNode(arr[0]);
-  let current = head;
-  for (let i = 1; i < arr.length; i++) {
-    current.next = new ListNode(arr[i]);
-    current = current.next;
-  }
-  return head;
-}
-
-function listToArray(head: ListNode | null): number[] {
-  const result: number[] = [];
-  while (head) {
-    result.push(head.val);
-    head = head.next;
-  }
-  return result;
-}
+import { arrayToList, listToArray } from "../../../utils/linked_list";
 
 describe("reverseList", () => {
   it("should reverse a list with multiple nodes", () => {

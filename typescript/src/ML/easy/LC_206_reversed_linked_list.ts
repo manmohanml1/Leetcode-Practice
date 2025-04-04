@@ -1,14 +1,16 @@
+import { ListNode } from "../../../utils/linked_list";
+
 /**
  * Definition for singly-linked list.
- * */
-export class ListNode {
-  val: number;
-  next: ListNode | null;
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-  }
-}
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
 
 // Two Pointer approach -> TC:O(n) as goes through the whole list, SC:O(1) as only pointers no saving
 export function reverseList(head: ListNode | null): ListNode | null {
