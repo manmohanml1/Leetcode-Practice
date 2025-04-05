@@ -29,3 +29,20 @@ export function listToArray(head: ListNode | null): number[] {
   }
   return result;
 }
+
+export function createCyclicLinkedList(
+  values: number[],
+  pos: number
+): ListNode | null {
+  if (values.length === 0) return null;
+  const nodes: ListNode[] = values.map((val) => new ListNode(val));
+  for (let i = 0; i < nodes.length - 1; i++) {
+    {
+      nodes[i].next = nodes[i + 1];
+    }
+  }
+  if (pos >= 0) {
+    nodes[nodes.length - 1].next = nodes[pos]; //Creates cycle
+  }
+  return nodes[0];
+}

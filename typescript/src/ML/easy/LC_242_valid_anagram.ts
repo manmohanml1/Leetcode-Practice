@@ -10,6 +10,7 @@ export function isAnagram(s: string, t: string): boolean {
   }
   return true;
 }
+
 function isAnagram1(s: string, t: string): boolean {
   if (s.length != t.length) return false;
   const charCounts = new Array(26).fill(0);
@@ -19,6 +20,20 @@ function isAnagram1(s: string, t: string): boolean {
   }
   return charCounts.every((char) => char === 0);
 }
+
 function isAnagram2(s: string, t: string): boolean {
   return s.split("").sort().join("") === t.split("").sort().join("");
+}
+
+function isAnagram3(s: string, t: string): boolean {
+  if (s.length !== t.length) return false;
+  const counter: Record<string, number> = {};
+  for (let char of s) {
+    counter[char] = (counter[char] || 0) + 1;
+  }
+  for (let char of t) {
+    if (!counter[char]) return false;
+    counter[char]--;
+  }
+  return true;
 }
