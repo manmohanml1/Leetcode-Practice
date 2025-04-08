@@ -9,3 +9,15 @@ export function majorityElement(nums: number[]): number {
   }
   return ans;
 }
+
+function majorityElement1(nums: number[]): number {
+  let check = -1;
+  let count = 0;
+  for (let num of nums) {
+    if (count === 0) {
+      check = num;
+    }
+    count += num === check ? 1 : -1;
+  }
+  return check;
+}
