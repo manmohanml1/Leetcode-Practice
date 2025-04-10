@@ -7,6 +7,7 @@ test("isPalindrome example test1", () => {
 test("isPalindrome example test2", () => {
   expect(distinctAverages([1, 100])).toEqual(1);
 });
+
 test("isPalindrome example test3", () => {
   expect(distinctAverages([10, 2, 2, 0, 4, 0])).toEqual(2);
 });
