@@ -23,6 +23,7 @@ describe("linked list cycle", () => {
     const node = new ListNode(1);
     expect(hasCycle(node)).toBe(false);
   });
+
   it("should return false for empty list", () => {
     expect(hasCycle(null)).toBe(false);
   });
