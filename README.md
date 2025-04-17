@@ -18,8 +18,8 @@ Practice solving **LeetCode problems** in **TypeScript, Java, and Python** — w
 leetcode-practice/
 │
 ├── typescript/
-│   ├── src/easy/LC_1_two_sum.ts(src/ML/easy or other initials)
-│   ├── tests/easy/LC_1_two_sum.test.ts(tests/ML/easy or other initials)
+│   ├── src/easy/LC_1_two_sum.ts(src/ML/easy or other initials(ML))
+│   ├── tests/easy/LC_1_two_sum.test.ts(tests/ML/easy or other initials(ML))
 │
 ├── java/
 │   ├── src/main/java/easy/LC_1_TwoSum.java
