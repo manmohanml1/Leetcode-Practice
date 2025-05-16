@@ -19,6 +19,7 @@ describe("linked list cycle", () => {
     node.next = node;
     expect(hasCycle(node)).toBe(true);
   });
+
   it("should return false for single node with no cycle", () => {
     const node = new ListNode(1);
     expect(hasCycle(node)).toBe(false);
