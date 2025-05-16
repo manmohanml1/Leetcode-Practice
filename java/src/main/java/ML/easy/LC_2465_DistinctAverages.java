@@ -3,7 +3,6 @@ package ML.easy;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
 //Sort and Two-Pointer method: TC:O(nlogn), SC:O(n) 
 class LC_2465_DistinctAverages {
     public int distinctAverages(int[] nums) {
